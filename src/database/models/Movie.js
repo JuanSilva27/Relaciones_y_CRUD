@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Movie.associate=models=>{
         Movie.belongsTo(models.Genre,{
-            as:"movie_genre",
+            as:"genre",
             foreignKey: "genre_id"
         })
 

@@ -81,7 +81,17 @@ const moviesController = {
 
     },
     edit: function(req,res) {
-
+        let Movie=db.Movie.findByPk(req.params.id,{
+            include:["genre"]
+        })
+        let allGenres=db.Genre.findAll()
+        Promise.all([Movie,allGenres])
+        .then(([Movie,allGenres])=>{
+            res.render("moviesEdit",{Movie,allGenres})
+        })
+        .catch(err=>{
+            res.send(err)
+        })
     },
     update: function (req,res) {
 
