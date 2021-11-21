@@ -13,7 +13,7 @@ router.post('/movies/create', moviesController.create);
 
 //Editar Pelicula
 router.get('/movies/edit/:id', moviesController.edit);
-//router.post('/movies/update/:id', moviesController.update);
+router.put('/movies/update/:id', moviesController.update);
 //router.get('/movies/delete/:id', moviesController.delete);
 //router.post('/movies/delete/:id', moviesController.destroy);
 
