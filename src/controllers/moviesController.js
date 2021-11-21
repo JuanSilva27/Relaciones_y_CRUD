@@ -19,6 +19,9 @@ const moviesController = {
             .then(movies => {
                 res.render('moviesList.ejs', {movies})
             })
+            .catch(err=>{
+                res.send(err)
+            })
     },
     'detail': (req, res) => {
         db.Movie.findByPk(req.params.id)
@@ -52,7 +55,13 @@ const moviesController = {
     },
     //Aqui dispongo las rutas para trabajar con el CRUD
     add: function (req, res) {
-        
+        db.Genre.findAll()
+        .then(allGenres=>{
+            res.render("moviesAdd",{allGenres})
+        })
+        .catch(err=>{
+            res.send(err)
+        })
     },
     create: function (req,res) {
 
