@@ -64,6 +64,20 @@ const moviesController = {
         })
     },
     create: function (req,res) {
+        db.Movie.create({
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+            release_date: req.body.release_date,
+            length: req.body.length,
+            genre_id: req.body.genre_id
+        })
+        .then(resultado=>{
+            res.redirect("/movies")
+        })
+        .catch(err=>{
+            res.send(err)
+        })
 
     },
     edit: function(req,res) {
